@@ -4,10 +4,11 @@ li.tight {
 }
 
 .navbar-inverse {
-    background-color: crimson;
-    border-color: crimson;
+    background-color: azure;
+    border-color: azure;
 }
 
 .navbar-brand a{
-    color: #FFFFFF;
+    color: #00008B;
+    font-weight: bold;
 }
