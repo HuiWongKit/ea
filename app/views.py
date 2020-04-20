@@ -78,10 +78,17 @@ class NewsPageView(BaseView):
         self.update_redirect()
         return self.render_template('news.html', param1=param1)
 
-
+class AboutUsView(BaseView):
+    @expose('/About_us/')
+    def aboutus(self):
+        return self.render_template('About_us.html')
+        
+    
 db.create_all()
 
+
 """ Page View """
+appbuilder.add_view(AboutUsView,'about us' , category='aboutus')
 appbuilder.add_view(NewsPageView, 'Local News', category="News")
 appbuilder.add_link("Global News", href="/newspageview/global_news/", category="News")
 
