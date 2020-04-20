@@ -88,6 +88,6 @@ appbuilder.add_link("Global News", href="/newspageview/global_news/", category="
 """ Custom Views """
 appbuilder.add_view(MenuItemView, "MenuItem", icon="fa-folder-open-o", category="Admin")
 appbuilder.add_view(MenuCategoryView, "MenuCategory", icon="fa-folder-open-o", category="Admin")
-appbuilder.add_view(NewsView, "News", icon="fa-folder-open-o", category="Admin")
+appbuilder.add_view(NewsView, "My jobsDB", icon="fa-folder-open-o", category="Admin")
 appbuilder.add_view(NewsCategoryView, "NewsCategory", icon="fa-folder-open-o", category="Admin")
 
