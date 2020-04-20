@@ -106,3 +106,8 @@ class NewsCategory(Model):
     __tablename__ = 'news_category'
     id = Column(Integer, primary_key=True)
     name = Column(String(50), nullable=False)
+    
+class AboutJobsdb(Model):
+    __tablename__ = 'about_jobsdb'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(50), nullable=False)

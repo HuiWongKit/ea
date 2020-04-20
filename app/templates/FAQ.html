@@ -1,0 +1,58 @@
+{% extends "index_base.html" %}
+
+{% block head_css %}
+        {{ super() }}
+        <link href="{{url_for('static',filename='css/custom.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<h3>FAQ</h3>
+
+<h1>Help yourself</h1>   
+<div class="sidebar" >
+    <p>Job Seeker</p>
+    <ul class="menu">
+        <li>New jobsDB</li>
+        <li>Registration</li>
+        <li>Job Search</li>
+        <li>Application</li>
+        <li>Post Resume</li>
+        <li>Resume Request & Resume Rxposure level</li>
+        <li>Job Alert</li>
+        <li>privacy & Security</li>
+        <li>Technical Issues</li>
+        <li>Mobile Site</li>
+    </ul>
+</div>
+
+<div class="content">
+    <h1>Or, let us help you</h1>
+    <div class="cellA">
+        <h3>Call Us</h3>
+        <p><b>Job Seekers</b><br>(852) 2332 8832</p>
+        <p><b>Employers</b><br>(852) 2781 3899</p>
+        <p><b>Business Hours</b><br>Mon-Fri: 09:00 - 18:00</p>
+    </div>
+    <div class="cellB">
+        <h3>Email Us</h3>
+        <p>Ask a questions?</p>
+        <li>Job Seekers</li>
+        <li>Employers</li>
+        <li>Trust & Site Security</li>
+    </div>
+    
+   
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

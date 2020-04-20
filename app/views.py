@@ -82,6 +82,11 @@ class AboutUsView(BaseView):
     @expose('/About_us/')
     def aboutus(self):
         return self.render_template('About_us.html')
+
+class FAQView(BaseView):
+    @expose('/FAQ/')
+    def aboutus(self):
+        return self.render_template('FAQ.html')
         
     
 db.create_all()
@@ -89,6 +94,7 @@ db.create_all()
 
 """ Page View """
 appbuilder.add_view(AboutUsView,'about us' , category='aboutus')
+appbuilder.add_view(FAQView,'faq' , category='faq')
 appbuilder.add_view(NewsPageView, 'Local News', category="News")
 appbuilder.add_link("Global News", href="/newspageview/global_news/", category="News")
 

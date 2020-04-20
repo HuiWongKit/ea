@@ -12,3 +12,15 @@ li.tight {
     color: #00008B;
     font-weight: bold;
 }
+
+.sidebar {
+    width:100px;
+    display:block;
+    float: left;
+}
+
+.content {
+    width:100px;
+    display:block;
+    float: right;
+}
