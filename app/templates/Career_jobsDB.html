@@ -1,0 +1,20 @@
+{% extends "index_base.html" %}
+
+{% block head_css %}
+        {{ super() }}
+        <link href="{{url_for('static',filename='css/custom.css')}}" rel="stylesheet">
+{% endblock %}
+
+<div class="wrapper">
+  <div class="main">
+    <h2>We couldn't find any jobs matching your search</h2>
+    <p>Scroll down the page!</p>
+    <h3>Check the spelling and adjust the filter criteria</h3>
+  </div>
+
+  <div class="sidebar">
+    <h3>Sticky sidebar</h3>
+    <p>go back to the home page</p>
+    <p><a href="http://3.85.131.13:8080">caniuse stats</a>
+  </div>
+</div>
