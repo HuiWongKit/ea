@@ -86,7 +86,7 @@ class AboutUsView(BaseView):
 class Career_jobsDBView(BaseView):
     @expose('/Career_jobsDB/')
     def career_jobsDB(self):
-        return self.render_template('Career_jobsDB.html')
+        return self.render_template('Career_jobsDB')
 
 class FAQView(BaseView):
     @expose('/FAQ/')
