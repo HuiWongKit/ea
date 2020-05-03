@@ -78,29 +78,51 @@ class NewsPageView(BaseView):
         self.update_redirect()
         return self.render_template('news.html', param1=param1)
 
-class AboutUsView(BaseView):
-    @expose('/About_us/')
-    def aboutus(self):
-        return self.render_template('About_us.html')
+class Abouts_UsView(ModelView):
+    datamodel = SQLAInterface(News)
+    list_columns = ['scope', 'title', 'content', 'date', 'aboutusCat_scope']
 
-class Career_jobsDBView(BaseView):
-    @expose('/Career_jobsDB/')
+class AboutJobsdbView(ModelView):
+    datamodel = SQLAInterface(NewsCategory)
+    list_columns = ['scope', 'name']
+
+class AboutjobsDBView(BaseView):
+    default_view = 'aboutus'
+    
+    @expose('/about_us/')
+    def aboutus(self):
+        param1 = 'About us'
+        self.update_redirect()
+        return self.render_template('About_us.html', param1 = param1)
+
+    @expose('/career_jobsDB/')
     def career_jobsDB(self):
-        return self.render_template('Career_jobsDB')
+        param1 = 'Career_jobsDB'
+        self.update_redirect()
+        return self.render_template('Career_jobsDB.html',param1 = param1)
 
-class FAQView(BaseView):
-    @expose('/FAQ/')
-    def aboutus(self):
-        return self.render_template('FAQ.html')
+    @expose('/faq/')
+    def faq(self):
+        param1 = 'FAQ'
+        self.update_redirect()
+        return self.render_template('FAQ.html', param1 = param1)
+        
+
+    @expose('/feedback/')
+    def feedback(self):
+        param1 = 'Feedback'
+        self.update_redirect()
+        return self.render_template('feedback.html', param1 = param1)
         
     
 db.create_all()
 
 
 """ Page View """
-appbuilder.add_view(AboutUsView,'about us' , category='aboutus')
-appbuilder.add_view(Career_jobsDBView,'career_jobsDB' , category='career_jobsDB')
-appbuilder.add_view(FAQView,'faq' , category='faq')
+appbuilder.add_view(AboutjobsDBView,'About_us' , category='about_jobsdb')
+appbuilder.add_link('Career_jobsDB',href='/aboutjobsdbview/career_jobsDB/' , category='about_jobsdb')
+appbuilder.add_link('FAQ',href='/aboutjobsdbview/faq/' , category='about_jobsdb')
+appbuilder.add_link('Feedback',href='/aboutjobsdbview/feedback/' , category='about_jobsdb')
 appbuilder.add_view(NewsPageView, 'Local News', category="News")
 appbuilder.add_link("Global News", href="/newspageview/global_news/", category="News")
 
