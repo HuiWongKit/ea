@@ -113,7 +113,23 @@ class AboutjobsDBView(BaseView):
         param1 = 'Feedback'
         self.update_redirect()
         return self.render_template('feedback.html', param1 = param1)
-        
+
+class CareerInsightsView(ModelView):
+    datamodel = SQLAInterface(News)
+    list_columns = ['jobs_title', 'salary', 'content', 'date', 'jobs_titleCat_salary']
+
+class InsightsCategoryView(ModelView):
+    datamodel = SQLAInterface(News)
+    list_columns = ['salary', 'NewsCategory']
+
+class InsightsPageView(BaseView):
+    default_view = 'salary_ins'
+    
+    @expose('/salary_ins/')
+    def salary_ins(self):
+        param1 = 'Salary_Ins'
+        self.update_redirect()
+        return self.render_template('Salary.html', param1 = param1)
     
 db.create_all()
 
@@ -125,10 +141,10 @@ appbuilder.add_link('FAQ',href='/aboutjobsdbview/faq/' , category='about_jobsdb'
 appbuilder.add_link('Feedback',href='/aboutjobsdbview/feedback/' , category='about_jobsdb')
 appbuilder.add_view(NewsPageView, 'Local News', category="News")
 appbuilder.add_link("Global News", href="/newspageview/global_news/", category="News")
+appbuilder.add_view(InsightsPageView,'Salary_Ins' , category='insights_category')
 
 """ Custom Views """
 appbuilder.add_view(MenuItemView, "MenuItem", icon="fa-folder-open-o", category="Admin")
 appbuilder.add_view(MenuCategoryView, "MenuCategory", icon="fa-folder-open-o", category="Admin")
 appbuilder.add_view(NewsView, "My jobsDB", icon="fa-folder-open-o", category="Admin")
 appbuilder.add_view(NewsCategoryView, "NewsCategory", icon="fa-folder-open-o", category="Admin")
-

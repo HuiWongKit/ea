@@ -109,11 +109,11 @@ class NewsCategory(Model):
 
 class Abouts_Us(Model):
     __tablename__ = 'aboutus'
-    scope = Column(String(50), primary_key=True)
+    scope = Column(Integer, primary_key=True)
     title = Column(String(50), nullable=False)
     content = Column(String(500), nullable=False)
     date = Column(Date, default=datetime.date.today(), nullable=True)
-    aboutusCat_scope = Column(String(50), ForeignKey('about_jobsdb.scope'), nullable=False)
+    aboutusCat_scope = Column(Integer, ForeignKey('about_jobsdb.scope'), nullable=False)
     aboutusCat = relationship("AboutJobsdb")
 
 class AboutJobsdb(Model):
@@ -129,4 +129,19 @@ class JobSeekersdb(Model):
 class Employers(Model):
     __tablename__ = 'employers'
     id = Column(Integer, primary_key=True)
-    name = Column(String(50), nullable=False)    
+    name = Column(String(50), nullable=False)
+    
+
+class CareerInsights(Model):
+    __tablename__ = 'careerinsights'
+    job_title = Column(String(50), primary_key=True)
+    salary = Column(Integer, nullable=False)
+    content = Column(String(500), nullable=False)
+    date = Column(Date, default=datetime.date.today(), nullable=True)
+    job_titleCat_salary = Column(Integer, ForeignKey('insights_category.salary'), nullable=False)
+    job_titleCat = relationship("InsightsCategory")
+
+class InsightsCategory(Model):
+    __tablename__ = 'insights_category'
+    salary = Column(Integer, primary_key=True)
+    name = Column(String(50), nullable=False)
