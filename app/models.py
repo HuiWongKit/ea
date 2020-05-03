@@ -109,11 +109,11 @@ class NewsCategory(Model):
 
 class Abouts_Us(Model):
     __tablename__ = 'aboutus'
-    scope = Column(Integer, primary_key=True)
+    scope = Column(String(50), primary_key=True)
     title = Column(String(50), nullable=False)
     content = Column(String(500), nullable=False)
     date = Column(Date, default=datetime.date.today(), nullable=True)
-    aboutusCat_scope = Column(Integer, ForeignKey('about_jobsdb.scope'), nullable=False)
+    aboutusCat_scope = Column(String(50), ForeignKey('about_jobsdb.scope'), nullable=False)
     aboutusCat = relationship("AboutJobsdb")
 
 class AboutJobsdb(Model):
